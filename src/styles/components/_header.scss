@@ -1,0 +1,14 @@
+
+.menu.selected {
+  color: tomato;
+  font-weight: bolder;
+  border-bottom: 2px solid tomato;
+  text-decoration: none;
+}
+
+.logo-image {
+  height: 50px;
+  max-height: 85%;
+  width: auto;
+  object-fit: scale-down;
+}
