@@ -1,7 +1,7 @@
 // IMPORT PACKAGE REFERENCES
 
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 
 // COMPONENT
@@ -12,10 +12,10 @@ const Error = (props) => (
     <span className="h4 ml-3 alert-heading">Unexpected Application Error</span>
     <p className="ml-5 mt-3">{props.message}</p>
   </div>
-)
+);
 
 Error.propTypes = {
   message: PropTypes.string.isRequired
-}
+};
 
-export { Error }
+export { Error };

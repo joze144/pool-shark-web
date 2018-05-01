@@ -1,7 +1,7 @@
 // IMPORT PACKAGE REFERENCES
 
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 
 // COMPONENT
@@ -15,16 +15,16 @@ const LoadingIndicator = (props) => (
       </div>
     }
   </div>
-)
+);
 
 
 // CONFIGURE COMPONENT PROP TYPES
 
 LoadingIndicator.propTypes = {
   busy: PropTypes.bool
-}
+};
 
 
 // EXPORT COMPONENT
 
-export { LoadingIndicator }
+export { LoadingIndicator };

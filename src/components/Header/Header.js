@@ -18,12 +18,12 @@ export const Header = () => (
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
           <div className="nav-link">
-            <NavLink to='/' activeClassName='menu selected' exact={true}>HOME</NavLink>
+            <NavLink to='/pool' activeClassName='menu selected' exact={true}>Find Pool</NavLink>
           </div>
         </li>
         <li className="nav-item">
           <div className="nav-link">
-            <NavLink to='/about' activeClassName='menu selected'>ABOUT</NavLink>
+            <NavLink to='/about' activeClassName='menu selected'>My Pools</NavLink>
           </div>
         </li>
       </ul>

@@ -7,8 +7,8 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import { Header } from '../Header/Header';
 import { HomePage } from '../pages/HomePage';
-import { AboutPage } from '../pages/AboutPage';
-
+import { PoolPage } from '../pages/PoolPage';
+import { SinglePool } from '../SinglePool/SinglePool';
 
 // COMPONENT
 
@@ -18,9 +18,10 @@ export const AppRouter = () => (
       <Header />
       <Switch>
         <Route path='/' component={HomePage} exact={true} />
-        <Route path='/about' component={AboutPage} />
-        <Route path='/pool' component={Pool} />
-        <Redirect to="/" />
+        <Route path='/pool' component={PoolPage} />
+        <Route path='/my-pool' component={PoolPage} />
+        <Route path='/pool/:id' component={SinglePool} />
+        <Redirect to='/' />
       </Switch>
     </Fragment>
   </BrowserRouter>
