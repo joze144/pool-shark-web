@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Web3Provider } from '../Web3/Web3Provider';
 
 // COMPONENT
 

@@ -13,19 +13,13 @@ const ONE_MINUTE = ONE_SECOND * 60;
 class Web3Provider extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      accounts: [],
-      network_id: null,
-      network_fetched: false
-    };
     this.interval = null;
     this.networkInterval = null;
   }
 
   /**
    * Start polling accounts, & network. We poll indefinitely so that we can
-   * react to the user changing accounts or netowrks.
+   * react to the user changing accounts or networks.
    */
   componentDidMount() {
     this.props.fetchAccounts();
@@ -40,7 +34,7 @@ class Web3Provider extends Component {
    */
   initPoll() {
     if (!this.interval) {
-      this.interval = setInterval(this.fetchAccounts, ONE_SECOND);
+      this.interval = setInterval(this.props.fetchAccounts, ONE_SECOND);
     }
   }
 
@@ -50,68 +44,7 @@ class Web3Provider extends Component {
    */
   initNetworkPoll() {
     if (!this.networkInterval) {
-      this.networkInterval = setInterval(this.fetchNetwork, ONE_MINUTE);
-    }
-  }
-
-  handleAccounts(accounts, isConstructor = false) {
-    const { onChangeAccount } = this.props;
-    const { store } = this.context;
-    let next = accounts[0];
-    let curr = this.state.accounts[0];
-    next = next && next.toLowerCase();
-    curr = curr && curr.toLowerCase();
-    const didChange = curr && next && (curr !== next);
-
-    if (isEmpty(this.state.accounts) && !isEmpty(accounts)) {
-      this.setState({
-        accountsError: null,
-        accounts: accounts
-      });
-    }
-
-    if (didChange && !isConstructor) {
-      this.setState({
-        accountsError: null,
-        accounts
-      });
-    }
-
-    // If provided, execute callback
-    if (didChange && typeof onChangeAccount === 'function') {
-      onChangeAccount(next);
-    }
-
-    // If available, dispatch redux action
-    if (store && typeof store.dispatch === 'function') {
-      const didDefine = !curr && next;
-
-      if (didDefine || (isConstructor && next)) {
-        store.dispatch({
-          type: 'Web3/RECEIVE_ACCOUNT',
-          address: next
-        });
-      } else if (didChange) {
-        store.dispatch({
-          type: 'Web3/CHANGE_ACCOUNT',
-          address: next
-        });
-      }
-    }
-  }
-
-  /**
-   * Get the account. We wrap in try/catch because reading `Web3.eth.accounrs`
-   * will throw if no account is selected.
-   * @return {String}
-   */
-  getAccounts() {
-    try {
-      const { web3 } = window;
-      // throws if no account selected
-      return web3.eth.accounts;
-    } catch (e) {
-      return [];
+      this.networkInterval = setInterval(this.props.fetchNetwork, ONE_MINUTE);
     }
   }
 
@@ -122,9 +55,11 @@ class Web3Provider extends Component {
       return <ErrorWeb3 />;
     }
 
-    if (isEmpty(this.state.accounts)) {
+    if (isEmpty(this.props.accounts)) {
       return <AccountUnavailable />;
     }
+
+    return null;
   }
 }
 
@@ -132,54 +67,29 @@ Web3Provider.propTypes = {
   fetchAccounts: PropTypes.func.isRequired,
   accounts: PropTypes.array.isRequired,
   accounts_fetched: PropTypes.bool.isRequired,
+  account_exists: PropTypes.bool.isRequired,
+  account_selected: PropTypes.string,
   fetchNetwork: PropTypes.func.isRequired,
   network_id: PropTypes.string,
   network_fetched: PropTypes.bool.isRequired,
-  onChangeAccount: PropTypes.func.isRequired,
+  onChangeAccount: PropTypes.func,
   web3error: PropTypes.any,
   accountUnavailableScreen: PropTypes.any
 };
 
-Web3Provider.defaultProps = {
-  passive: false,
-  web3error: ErrorWeb3,
-  accountUnavailableScreen: AccountUnavailable
-};
-
-const mapAccountsStateToProps = state => {
-  const { accounts_fetched, accounts } = state.accounts;
+const mapStateToProps = state => {
+  const { accounts_fetched, account_exists, account_selected, accounts } = state.accounts;
   const { network_fetched, network_id } = state.network;
 
-  return { accounts_fetched, accounts, network_fetched, network_id };
+  return { accounts_fetched, account_exists, accounts, account_selected, network_fetched, network_id };
 };
 
-const mapAccountsDispatchToProps = dispatch => (
+const mapDispatchToProps = dispatch => (
   bindActionCreators({ fetchAccounts, fetchNetwork }, dispatch)
 );
 
-const hoc = connect(mapAccountsStateToProps, mapAccountsDispatchToProps)(Web3Provider);
-
+const hoc = connect(mapStateToProps, mapDispatchToProps)(Web3Provider);
 
 // EXPORT COMPONENT
 
 export { hoc as Web3Provider };
-
-/* =============================================================================
-=    Deps
-============================================================================= */
-// function getNetwork(networkId) {
-//   switch (networkId) {
-//     case '1':
-//       return 'MAINNET';
-//     case '2':
-//       return 'MORDEN';
-//     case '3':
-//       return 'ROPSTEN';
-//     case '4':
-//       return 'RINKEBY';
-//     case '42':
-//       return 'KOVAN';
-//     default:
-//       return 'UNKNOWN';
-//   }
-// }

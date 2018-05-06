@@ -47,7 +47,6 @@ export const handleAccounts = (accounts, isConstructor) => {
 };
 
 export const fetchNetwork = () => {
-  console.log('Fetching network');
   return new Promise((resolve, reject) => {
     const { web3 } = window;
 
@@ -63,7 +62,6 @@ export const fetchNetwork = () => {
 
 
 export const fetchAccounts = () => {
-  console.log('Fetching accounts');
   return new Promise((resolve, reject) => {
     const { web3 } = window;
     const ethAccounts = getAccounts();
