@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { fetchSinglePool } from '../state/actions/SinglePoolActions';
 import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
 import { Error } from '../shared/Error/Error';
-import {SinglePoolElement} from './SinglePoolElement';
+import { SinglePoolElement } from './SinglePoolElement';
 
 class SinglePool extends Component {
   constructor(props) {

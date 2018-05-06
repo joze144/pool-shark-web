@@ -9,6 +9,7 @@ import { Header } from '../Header/Header';
 import { HomePage } from '../pages/HomePage';
 import { PoolPage } from '../pages/PoolPage';
 import { SinglePool } from '../SinglePool/SinglePool';
+import { Web3Provider } from '../Web3/Web3Provider';
 
 // COMPONENT
 
@@ -21,6 +22,7 @@ export const AppRouter = () => (
         <Route path='/pool' component={PoolPage} />
         <Route path='/my-pool' component={PoolPage} />
         <Route path='/pool/:id' component={SinglePool} />
+        <Route path='/web' component={Web3Provider} />
         <Redirect to='/' />
       </Switch>
     </Fragment>
