@@ -13,6 +13,8 @@ const ONE_MINUTE = ONE_SECOND * 60;
 class Web3Provider extends Component {
   constructor(props) {
     super(props);
+    this.props.fetchAccounts();
+    this.props.fetchNetwork();
     this.interval = null;
     this.networkInterval = null;
   }

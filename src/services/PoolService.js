@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const getPools = (value) => {
+  console.log(value);
   return new Promise((resolve, reject) => {
     axios.post('http://localhost:3030/api/v1/pool/list', {
       filter: value

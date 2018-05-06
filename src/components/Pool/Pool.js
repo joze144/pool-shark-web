@@ -7,29 +7,29 @@ import { fetchPools } from '../state/actions/PoolActions';
 import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
 import { Error } from '../shared/Error/Error';
 import { PoolList } from './PoolList';
+import SearchInput from 'react-search-input';
 
 class Pool extends Component {
   constructor(props) {
     super(props);
+
+    this.filter = '';
   }
 
-  state = {
-    filter: ''
-  };
-
   componentDidMount() {
-    this.props.fetchPools(this.state.filter);
+    this.props.fetchPools(this.filter);
   }
 
   doSomething = (event) => {
-    this.setState({filter: event.target.value});
-    this.props.fetchPools(event.target.value);
+    this.filter = event;
+    this.props.fetchPools(event);
   }
 
   render() {
     return (
-      <div>
-        <input className="filter-input" type="text" placeholder='find by name or address' onChange={this.doSomething} value={this.state.filter} />
+      <div >
+        <SearchInput className="search-input" placeholder='find by name or address' onChange={this.doSomething} value={this.filter} />
+        {/*<input className="filter-input" type="text" placeholder='find by name or address' onChange={this.doSomething} value={this.filter} />*/}
         {
           this.props.fetched && <PoolList pools={this.props.pools} />
         }
