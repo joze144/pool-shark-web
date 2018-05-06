@@ -1,18 +1,10 @@
-
-.menu.selected {
-  color: tomato;
-  font-weight: bolder;
-  border-bottom: 2px solid tomato;
-  text-decoration: none;
-}
-
 .logo-image {
-  height: 50px;
+  height: 100px;
   max-height: 85%;
   width: auto;
   object-fit: scale-down;
 }
 
-.meta-mask {
-  float: right;
+.title-text {
+  color: #000000; font-family: 'Raleway',sans-serif; font-size: 50px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase;
 }

@@ -8,6 +8,7 @@ import { Web3Provider } from '../Web3/Web3Provider';
 
 export const Header = () => (
   <nav className="navbar navbar-expand-lg navbar-light alert-dark">
+    {/*<div className="top-nav"><div className="top-nav-inner">Shark of The Pool</div><div className="check-icon"><CheckIcon /></div></div>*/}
     <a className="navbar-brand" href="/">
       <img className="logo-image" src={ require('../../images/logo.png') } />
     </a>
@@ -28,6 +29,7 @@ export const Header = () => (
           </div>
         </li>
       </ul>
+      <Web3Provider />
     </div>
   </nav>
 );
