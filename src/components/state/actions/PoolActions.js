@@ -12,7 +12,6 @@ const fetchPoolsAction = (value) => ({
   payload: getPools(value)
 });
 
-
 // EXPORT ACTIONS
 
 export { fetchPoolsAction as fetchPools };

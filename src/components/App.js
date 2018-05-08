@@ -11,6 +11,7 @@ import { createAppStore } from '../components/state/stores/AppStore';
 
 import { AppRouter } from './routers/AppRouter';
 import { Menu } from './Menu/Menu';
+import { Footer } from './Footer/Footer';
 
 
 // COMPONENT
@@ -20,6 +21,7 @@ export const App = () => (
     <div className="container">
       <Menu />
       <AppRouter />
+      <Footer/>
     </div>
   </Provider>
 );

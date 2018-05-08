@@ -27,9 +27,8 @@ class Pool extends Component {
 
   render() {
     return (
-      <div >
-        <SearchInput className="search-input" placeholder='find by name or address' onChange={this.doSomething} value={this.filter} />
-        {/*<input className="filter-input" type="text" placeholder='find by name or address' onChange={this.doSomething} value={this.filter} />*/}
+      <div className="m-3">
+        <SearchInput className="search-input" placeholder='Find by name or address' onChange={this.doSomething} value={this.filter} />
         {
           this.props.fetched && <PoolList pools={this.props.pools} />
         }
@@ -52,7 +51,6 @@ Pool.propTypes = {
   pools: PropTypes.array.isRequired,
   filter: PropTypes.string
 };
-
 
 // CONFIGURE REACT REDUX
 

@@ -8,23 +8,20 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { HomePage } from '../pages/HomePage';
 import { PoolPage } from '../pages/PoolPage';
 import { SinglePool } from '../SinglePool/SinglePool';
-import { Web3Provider } from '../Web3/Web3Provider';
-import { AboutPage } from '../pages/AboutPage';
 import { MyPools } from '../pages/MyPools';
+import { CreatePoolPage } from '../pages/CreatePoolPage';
 
 // COMPONENT
 
 export const AppRouter = () => (
   <BrowserRouter>
     <Fragment>
-      {/*<Header />*/}
       <Switch>
         <Route path='/' component={HomePage} exact={true} />
-        <Route path='/pool' component={PoolPage} />
+        <Route path='/pools' component={PoolPage} />
         <Route path='/mypools' component={MyPools} />
         <Route path='/pool/:id' component={SinglePool} />
-        <Route path='/web' component={Web3Provider} />
-        <Route path='/about' component={AboutPage} />
+        <Route path='/create' component={CreatePoolPage} />
         <Redirect to='/' />
       </Switch>
     </Fragment>

@@ -1,51 +1,5 @@
 import isEmpty from 'lodash/isEmpty';
 
-export const handleAccounts = (accounts, isConstructor) => {
-  const { onChangeAccount } = this.props;
-  const { store } = this.context;
-  let next = accounts[0];
-  let curr = this.state.accounts[0];
-  next = next && next.toLowerCase();
-  curr = curr && curr.toLowerCase();
-  const didChange = curr && next && (curr !== next);
-
-  if (isEmpty(this.state.accounts) && !isEmpty(accounts)) {
-    this.setState({
-      accountsError: null,
-      accounts: accounts
-    });
-  }
-
-  if (didChange && !isConstructor) {
-    this.setState({
-      accountsError: null,
-      accounts
-    });
-  }
-
-  // If provided, execute callback
-  if (didChange && typeof onChangeAccount === 'function') {
-    onChangeAccount(next);
-  }
-
-  // If available, dispatch redux action
-  if (store && typeof store.dispatch === 'function') {
-    const didDefine = !curr && next;
-
-    if (didDefine || (isConstructor && next)) {
-      store.dispatch({
-        type: 'Web3/RECEIVE_ACCOUNT',
-        address: next
-      });
-    } else if (didChange) {
-      store.dispatch({
-        type: 'Web3/CHANGE_ACCOUNT',
-        address: next
-      });
-    }
-  }
-};
-
 export const fetchNetwork = () => {
   return new Promise((resolve, reject) => {
     const { web3 } = window;
@@ -59,7 +13,6 @@ export const fetchNetwork = () => {
     });
   });
 };
-
 
 export const fetchAccounts = () => {
   return new Promise((resolve, reject) => {

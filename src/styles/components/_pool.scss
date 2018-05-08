@@ -9,7 +9,6 @@
   margin: 3rem;
   height: 52px;
   position: relative;
-  outline: 1px solid #373a47;
 }
 
 .search-input::before {
@@ -34,8 +33,9 @@
   padding: 5px 10px 5px 25px;
   height: 32px;
   position: relative;
+  outline: 1px solid #1d3557;
 }
 
 .search-input > input:focus {
-  outline: none;
+  outline: 1px solid #1d3557;
 }

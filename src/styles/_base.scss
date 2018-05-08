@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: #f1faee;
   font-family: $font-family;
 }
 
@@ -17,6 +17,28 @@ body {
   animation-fill-mode: both;
 }
 
+.container {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px; /* height of your footer */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #1d3557;
+  color: #f1faee;
+}
+.footer-div-1 {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
 @keyframes fadeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
@@ -27,9 +49,23 @@ body {
   animation-name: fadeIn;
 }
 
-.navbar {
-  max-width: 100%;
-  max-height: 40%;
-  background: #ffbc8e;
-  border-bottom: 1px solid black;
+h5.dark-blue-text {
+  color: #1d3557;
+}
+
+.light-blue-top {
+  background: #a8dadc;
+}
+
+.bottom-dark-border {
+  border-bottom: 1px solid #1d3557;
+}
+
+a:hover {
+  color: #e63946;
+}
+
+.whole-width {
+  width: 100%;
+  display: inline-block;
 }

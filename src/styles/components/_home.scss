@@ -1,0 +1,29 @@
+.home-div-1 {
+  width: calc(100% / 3);
+  min-width: 400px;
+  display: inline-block;
+}
+
+.home-div-2 {
+  width: calc(100% / 3);
+  min-width: 400px;
+  display: inline-block;
+}
+
+.home-div-3 {
+  width: calc(100% / 3);
+  min-width: 400px;
+  display: inline-block;
+}
+
+.stats-div {
+  width: calc(100% / 5);
+  min-width: 200px;
+  display: inline-block;
+  background-color: #fff;
+}
+
+p.list-item {
+  font-size: 14px;
+  width: 100%;
+}
