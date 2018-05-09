@@ -1,8 +1,9 @@
+import config from '../../config/common-paths';
 import axios from 'axios';
 
 export const getPoolsStatistics = () => {
   return new Promise((resolve, reject) => {
-    axios.get('http://localhost:3030/api/v1/pool/statistics', {}).then( response => {
+    axios.get(config.api_service_url + '/pool/statistics', {}).then( response => {
       resolve(response.data);
     }).catch((err) => {
       reject(err);
