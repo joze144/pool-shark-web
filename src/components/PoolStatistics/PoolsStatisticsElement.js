@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 const PoolStatisticsElement = ({all_count, all_collected, active_count, active_collected}) => (
   <div>
-    <div className="stats-div list-group-item list-group-item-action flex-column align-items-start">
-      <p className="text-center">All time stats</p>
+    <div className="m-3 box-shadow stats-div list-group-item list-group-item-action flex-column align-items-start">
+      <p className="text-center dark-blue-text">All time stats</p>
       <div>Pool count: {all_count}</div>
       <div>Ether collected: {all_collected.toFixed(2)} ETH</div>
     </div>
-    <div className="m-3 stats-div list-group-item list-group-item-action flex-column align-items-start">
-      <p className="text-center">Active pools stats</p>
+    <div className="m-3 box-shadow stats-div list-group-item list-group-item-action flex-column align-items-start">
+      <p className="text-center dark-blue-text">Active pools stats</p>
       <div>Pool count: {active_count}</div>
       <div>Ether collected: {active_collected.toFixed(2)} ETH</div>
     </div>

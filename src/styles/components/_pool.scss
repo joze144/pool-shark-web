@@ -33,9 +33,27 @@
   padding: 5px 10px 5px 25px;
   height: 32px;
   position: relative;
-  outline: 1px solid #1d3557;
+  //outline: 1px solid #1d3557;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+  box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 
 .search-input > input:focus {
-  outline: 1px solid #1d3557;
+  //outline: 1px solid #1d3557;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+  box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+}
+
+.box-shadow {
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+  box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
 }

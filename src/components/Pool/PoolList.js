@@ -11,7 +11,7 @@ import { PoolListItem } from './PoolListItem';
 // COMPONENT
 
 const renderList = pools => (
-  <div className="list-group animated fadeIn">
+  <div className="box-shadow list-group animated fadeIn">
     {pools.map(pool => renderListItem(pool))}
   </div>
 );
