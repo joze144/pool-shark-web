@@ -18,7 +18,7 @@ const renderList = pools => (
 
 const renderListItem = pool => (
   <Fragment key={pool.address}>
-    <PoolSmallListItem name={pool.name} address={pool.address} amount={pool.collected_eth} deadline={pool.deadline} />
+    <PoolSmallListItem address={pool.address} amount={pool.collected_eth} deadline={pool.deadline} />
   </Fragment>
 );
 

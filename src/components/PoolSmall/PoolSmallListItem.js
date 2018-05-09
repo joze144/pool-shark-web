@@ -7,7 +7,7 @@ import Moment from 'react-moment';
 
 // COMPONENT
 
-const PoolSmallListItem = ({name, address, amount, deadline}) => (
+const PoolSmallListItem = ({address, amount, deadline}) => (
   <a href={'/pool/' + address} className="list-group-item list-group-item-action flex-column align-items-start">
     <div className="d-flex w-100 justify-content-between">
       <p className="text-center dark-blue-text list-item">{address}</p>
@@ -20,8 +20,7 @@ const PoolSmallListItem = ({name, address, amount, deadline}) => (
 PoolSmallListItem.propTypes = {
   address: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired,
-  deadline: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired
+  deadline: PropTypes.number.isRequired
 };
 
 export { PoolSmallListItem };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconNoWeb3 } from './IconNoWeb3';
 
-const AccountUnavailable = (props) => (
+const AccountUnavailable = () => (
   <div className="Web3Provider-container">
     <div className="Web3Provider-wrapper">
       <div className="Web3Provider-image">
