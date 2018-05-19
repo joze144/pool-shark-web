@@ -3,6 +3,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import isEmpty from 'lodash/isEmpty';
+import { EmptyPool } from './EmptyPool';
+
 // IMPORT PROJECT REFERENCES
 
 import { PoolSmallListItem } from './PoolSmallListItem';
@@ -12,7 +15,12 @@ import { PoolSmallListItem } from './PoolSmallListItem';
 
 const renderList = pools => (
   <div className="box-shadow list-group animated fadeIn">
-    {pools.map(pool => renderListItem(pool))}
+    {
+      isEmpty(pools) && <EmptyPool />
+    }
+    {
+      pools.map(pool => renderListItem(pool))
+    }
   </div>
 );
 

@@ -12,13 +12,14 @@ import { createAppStore } from '../components/state/stores/AppStore';
 import { AppRouter } from './routers/AppRouter';
 import { Menu } from './Menu/Menu';
 import { Footer } from './Footer/Footer';
-
+import { Web3Provider } from './Web3/Web3Provider';
 
 // COMPONENT
 
 export const App = () => (
   <Provider store={createAppStore()}>
     <div className="container">
+      <Web3Provider />
       <Menu />
       <AppRouter />
       <Footer/>

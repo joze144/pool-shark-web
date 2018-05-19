@@ -4,7 +4,7 @@ import ReduxMenu from './reduxMenu';
 const Menu = () => (
   <ReduxMenu>
     <a className="navbar-brand" href="/">
-      <img className="logo-image" src={ require('../../images/logo.png') } />
+      <img className="logo-image" src={ require('../../images/logo.svg') } />
     </a>
     <a id="home" className="menu-item" href="/">Home</a>
     <a id="pools" className="menu-item" href="/pools">Pool Explorer</a>

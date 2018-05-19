@@ -3,6 +3,30 @@ body {
   font-family: $font-family;
 }
 
+.banner {
+  background-image: url("../images/trianglify.svg");
+}
+
+.inline-half {
+  width: calc(100% / 2);
+  min-width: 400px;
+  display: inline-block;
+}
+
+.inline-third {
+  width: calc(100% / 3);
+  min-width: 400px;
+  display: inline-block;
+}
+
+.text-shadow-simple {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.text-shadow-gray {
+  text-shadow: 0 1px 0 #a6a6a6;
+}
+
 .container {
   max-width: 100%;
   max-height: 100%;
@@ -36,7 +60,25 @@ footer {
 .footer-div-1 {
   width: 100%;
   display: inline-block;
+}
+
+.foot-left {
+  width: 80%;
+  min-width: 200px;
   text-align: center;
+  display: inline-block;
+}
+
+.foot-right {
+  width: 20%;
+  min-width: 100px;
+  text-align: center;
+  display: inline-block;
+}
+
+.foot-icon-button {
+  background: #1d3557;
+  border: none;
 }
 
 @keyframes fadeIn {
@@ -52,10 +94,10 @@ footer {
 h5.dark-blue-text {
   color: #1d3557;
 }
-
-.light-blue-top {
-  background: #a8dadc;
-}
+//
+//.light-blue-top {
+//  background: #a8dadc;
+//}
 
 .bottom-dark-border {
   border-bottom: 1px solid #1d3557;

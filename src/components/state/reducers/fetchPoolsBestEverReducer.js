@@ -18,8 +18,6 @@ const initialState = {
 // REDUCER
 
 export const FetchPoolsBestEverReducer = (state = initialState, action) => {
-  console.log(action.type);
-  console.log(action.payload);
   switch(action.type) {
     case FETCH_POOL_BEST_EVER_PENDING:
       return {
@@ -30,7 +28,6 @@ export const FetchPoolsBestEverReducer = (state = initialState, action) => {
         poolBestEverFailed: false
       };
     case FETCH_POOL_BEST_EVER_FULFILLED:
-      console.log('fulfilled');
       return {
         ...state,
         poolsBestEver: action.payload,

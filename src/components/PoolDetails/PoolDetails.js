@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { fetchPoolDetails } from '../state/actions/PoolDetailsActions';
 import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
 import { Error } from '../shared/Error/Error';
+import { Web3Provider } from '../Web3/Web3Provider';
 
 class TokenHolder extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class TokenHolder extends Component {
   render() {
     return (
       <div className="m-5">
-        <div className="m-3"><h5 className="dark-blue-text text-center">Token holders list</h5></div>
+        <div className="m-3"><h5 className="dark-blue-text text-center text-shadow-gray">Token holders list</h5></div>
         {
           this.props.fetched && <TokenHolderList holders={this.props.holders} />
         }
@@ -28,6 +29,11 @@ class TokenHolder extends Component {
         }
         {
           this.props.failed && <Error message="Failed to fetch list of pools" />
+        }
+
+        <Web3Provider />
+        {
+
         }
       </div>
     );
@@ -47,6 +53,7 @@ TokenHolder.propTypes = {
 
 const mapStateToProps = state => {
   const { fetching, fetched, failed, holders } = state.holders;
+  const { }
 
   return { fetching, fetched, failed, holders };
 };

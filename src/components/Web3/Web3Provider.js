@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import isEmpty from 'lodash/isEmpty';
-import { AccountUnavailable } from './AccountUnavailable';
-import { ErrorWeb3 } from './ErrorWeb3';
 
 import { fetchAccounts, fetchNetwork } from '../state/actions/Web3Actions';
 
@@ -51,16 +48,6 @@ class Web3Provider extends Component {
   }
 
   render() {
-    const web3 = window.web3;
-
-    if (!web3) {
-      return <ErrorWeb3 />;
-    }
-
-    if (isEmpty(this.props.accounts)) {
-      return <AccountUnavailable />;
-    }
-
     return null;
   }
 }

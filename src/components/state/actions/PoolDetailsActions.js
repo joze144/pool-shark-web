@@ -1,18 +1,18 @@
 import { getPoolDetails } from '../../../services/PoolDetailsService';
 
-export const FETCH_TOKEN_HOLDERS = 'FETCH_TOKEN_HOLDERS';
-export const FETCH_TOKEN_HOLDERS_PENDING = 'FETCH_TOKEN_HOLDERS_PENDING';
-export const FETCH_TOKEN_HOLDERS_FULFILLED = 'FETCH_TOKEN_HOLDERS_FULFILLED';
-export const FETCH_TOKEN_HOLDERS_REJECTED = 'FETCH_TOKEN_HOLDERS_REJECTED';
+export const FETCH_POOL_DETAILS = 'FETCH_POOL_DETAILS';
+export const FETCH_POOL_DETAILS_PENDING = 'FETCH_POOL_DETAILS_PENDING';
+export const FETCH_POOL_DETAILS_FULFILLED = 'FETCH_POOL_DETAILS_FULFILLED';
+export const FETCH_POOL_DETAILS_REJECTED = 'FETCH_POOL_DETAILS_REJECTED';
 
 // ACTION GENERATORS
 
-const fetchTokenHoldersAction = (value) => ({
-  type: FETCH_TOKEN_HOLDERS,
-  payload: getTokenHolders(value)
+const fetchPoolDetailsAction = (value) => ({
+  type: FETCH_POOL_DETAILS,
+  payload: getPoolDetails(value)
 });
 
 
 // EXPORT ACTIONS
 
-export { fetchTokenHoldersAction as fetchTokenHolders };
+export { fetchPoolDetailsAction as fetchPoolDetails };

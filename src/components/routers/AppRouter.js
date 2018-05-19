@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { HomePage } from '../pages/HomePage';
 import { PoolPage } from '../pages/PoolPage';
 import { SinglePool } from '../SinglePool/SinglePool';
-import { MyPools } from '../pages/MyPools';
+import { MyPoolsPage } from '../pages/MyPoolsPage';
 import { CreatePoolPage } from '../pages/CreatePoolPage';
 
 // COMPONENT
@@ -19,7 +19,7 @@ export const AppRouter = () => (
       <Switch>
         <Route path='/' component={HomePage} exact={true} />
         <Route path='/pools' component={PoolPage} />
-        <Route path='/mypools' component={MyPools} />
+        <Route path='/mypools' component={MyPoolsPage} />
         <Route path='/pool/:id' component={SinglePool} />
         <Route path='/create' component={CreatePoolPage} />
         <Redirect to='/' />

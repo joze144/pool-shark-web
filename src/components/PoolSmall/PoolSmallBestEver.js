@@ -18,9 +18,6 @@ class PoolSmallBestEver extends Component {
   }
 
   render() {
-    console.log(this.props.poolBestEverFetched);
-    console.log(this.props.poolsBestEver);
-
     return (
       <div className="m-1">
         {

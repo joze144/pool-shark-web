@@ -3,12 +3,12 @@ import { IconNoWeb3 } from './IconNoWeb3';
 
 const ErrorWeb3 = () => (
   <div className="Web3Provider-container">
-    <div className="Web3Provider-wrapper">
+    <div className="Web3Provider-wrapper box-shadow">
       <div className="Web3Provider-image">
         <IconNoWeb3 />
       </div>
       <h1
-        className="Web3Provider-title"
+        className="Web3Provider-title text-shadow-simple"
         dangerouslySetInnerHTML={{ __html: 'Web3 Not Found' }}
       />
       <p

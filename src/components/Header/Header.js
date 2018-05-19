@@ -10,7 +10,7 @@ export const Header = () => (
   <nav className="navbar navbar-expand-lg navbar-light alert-dark">
     {/*<div className="top-nav"><div className="top-nav-inner">Shark of The Pool</div><div className="check-icon"><CheckIcon /></div></div>*/}
     <a className="navbar-brand" href="/">
-      <img className="logo-image" src={ require('../../images/logo.png') } />
+      <img className="logo-image" src={ require('../../images/logo.svg') } />
     </a>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
       <span className="navbar-toggler-icon"></span>

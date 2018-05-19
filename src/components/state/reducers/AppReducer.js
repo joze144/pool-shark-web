@@ -15,6 +15,8 @@ import { FetchPoolsLatestReducer } from './fetchPoolsLatestReducer';
 import { FetchPoolsBestActiveReducer } from './fetchPoolsBestActiveReducer';
 import { FetchPoolsBestEverReducer } from './fetchPoolsBestEverReducer';
 import { FetchPoolStatisticsReducer } from './fetchPoolStatisticsReducer';
+import { FetchPoolAccountActiveReducer } from './fetchPoolAccountActiveReducer';
+import { FetchPoolAccountPastReducer } from './fetchPoolAccountPastReducer';
 
 // EXPORT APP REDUCER
 
@@ -28,5 +30,7 @@ export const AppReducer = combineReducers({
   poolsLatest: FetchPoolsLatestReducer,
   poolsBestActive: FetchPoolsBestActiveReducer,
   poolsBestEver: FetchPoolsBestEverReducer,
-  poolStatistics: FetchPoolStatisticsReducer
+  poolStatistics: FetchPoolStatisticsReducer,
+  poolAccountActive: FetchPoolAccountActiveReducer,
+  poolAccountPast: FetchPoolAccountPastReducer
 });

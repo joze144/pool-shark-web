@@ -7,9 +7,9 @@ import { Home } from '../Home/Home';
 
 const HomePage = () => (
   <div>
-    <div className="jumbotron jumbotron-fluid light-blue-top animated bottom-dark-border">
-      <div className="text-center"><h1 className="title-text">Shark of The Pool</h1></div>
-      <div className="text-center"><p className="sub-title-text">Be a Shark!</p></div>
+    <div className="banner jumbotron jumbotron-fluid light-blue-top animated bottom-dark-border">
+      <div className="text-center"><h1 className="title-text text-shadow-simple">Shark of The Pool</h1></div>
+      <div className="text-center"><p className="sub-title-text text-shadow-simple">Be a Shark!</p></div>
     </div>
     <Home />
   </div>

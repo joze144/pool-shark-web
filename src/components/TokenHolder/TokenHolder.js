@@ -20,7 +20,7 @@ class TokenHolder extends Component {
   render() {
     return (
       <div className="m-5">
-        <div className="m-3"><h5 className="dark-blue-text text-center">Token holders list</h5></div>
+        <div className="m-3"><h5 className="dark-blue-text text-center text-shadow-gray">Token holders list</h5></div>
         {
           this.props.fetched && <TokenHolderList holders={this.props.holders} />
         }

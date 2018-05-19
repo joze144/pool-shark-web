@@ -10,8 +10,8 @@ class SinglePool extends Component {
   render() {
     return (
       <div>
-        <div className="jumbotron jumbotron-fluid light-blue-top animated bottom-dark-border">
-          <div className="text-center"><p className="sub-title-text">Pool: {this.props.match.params.id}</p></div>
+        <div className="jumbotron jumbotron-fluid banner animated bottom-dark-border">
+          <div className="text-center"><p className="sub-title-text text-shadow-simple">Pool: {this.props.match.params.id}</p></div>
         </div>
         <div className="p-3">
           <TokenHolder token={this.props.match.params.id} />

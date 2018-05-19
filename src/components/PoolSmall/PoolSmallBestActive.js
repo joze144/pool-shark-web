@@ -18,7 +18,6 @@ class PoolSmallBestActive extends Component {
   }
 
   render() {
-    console.log(this.props.poolBestActiveFetched);
     return (
       <div className="m-1">
         {
