@@ -4,7 +4,9 @@ import axios from 'axios';
 export const getPools = (value) => {
   return new Promise((resolve, reject) => {
     axios.post(config.api_service_url + '/pool/list', {
-      filter: value
+      filter: value,
+      page: 1,
+      limit: 20
     }).then( response => {
       resolve(response.data.docs);
     }).catch((err) => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconNoWeb3 } from './IconNoWeb3';
+import { InstallMetaMask } from './InstallMetaMask';
 
 const ErrorWeb3 = () => (
   <div className="Web3Provider-container">
@@ -21,6 +22,7 @@ enabled.
 ` }}
       />
     </div>
+    <InstallMetaMask />
   </div>
 );
 

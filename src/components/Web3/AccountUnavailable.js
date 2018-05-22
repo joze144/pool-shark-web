@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconNoWeb3 } from './IconNoWeb3';
+import { InstallMetaMask } from './InstallMetaMask';
 
 const AccountUnavailable = () => (
   <div className="Web3Provider-container">
@@ -19,6 +20,7 @@ MetaMask, please make sure that your wallet is unlocked and that
 you have at least one account in your accounts list.` }}
       />
     </div>
+    <InstallMetaMask />
   </div>
 );
 

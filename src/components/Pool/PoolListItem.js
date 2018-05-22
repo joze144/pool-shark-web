@@ -17,11 +17,11 @@ function limitText (name, address) {
   return string;
 }
 
-const PoolListItem = ({address, name, rate, deadline}) => (
+const PoolListItem = ({address, name, rate, deadline, amount}) => (
   <a href={'/pool/' + address} className="list-group-item list-group-item-action flex-column align-items-start">
     <div className="d-flex w-100 justify-content-between">
       <h5 className="mb-1 dark-blue-text">{limitText(name, address)}</h5>
-      <small className="text-muted">Size: {address} ETH</small>
+      <small className="text-muted">Size: {amount} ETH</small>
     </div>
     <small className="text-muted">Rate: {rate}, Deadline: <Moment unix>{Math.floor(deadline/1000)}</Moment></small>
   </a>
@@ -31,7 +31,8 @@ PoolListItem.propTypes = {
   address: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   rate: PropTypes.number.isRequired,
-  deadline: PropTypes.number.isRequired
+  deadline: PropTypes.number.isRequired,
+  amount: PropTypes.number.isRequired,
 };
 
 export { PoolListItem };

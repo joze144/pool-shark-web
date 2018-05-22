@@ -1,6 +1,7 @@
 // IMPORT PACKAGE REFERENCES
 
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
 
 // IMPORT REDUCERS
@@ -17,6 +18,8 @@ import { FetchPoolsBestEverReducer } from './fetchPoolsBestEverReducer';
 import { FetchPoolStatisticsReducer } from './fetchPoolStatisticsReducer';
 import { FetchPoolAccountActiveReducer } from './fetchPoolAccountActiveReducer';
 import { FetchPoolAccountPastReducer } from './fetchPoolAccountPastReducer';
+import { CreatePoolReducer } from './createPoolReducer';
+import { FetchTransactionsReducer } from './fetchTransactionsReducer';
 
 // EXPORT APP REDUCER
 
@@ -32,5 +35,8 @@ export const AppReducer = combineReducers({
   poolsBestEver: FetchPoolsBestEverReducer,
   poolStatistics: FetchPoolStatisticsReducer,
   poolAccountActive: FetchPoolAccountActiveReducer,
-  poolAccountPast: FetchPoolAccountPastReducer
+  poolAccountPast: FetchPoolAccountPastReducer,
+  form: formReducer,
+  createPool: CreatePoolReducer,
+  transactions: FetchTransactionsReducer
 });
