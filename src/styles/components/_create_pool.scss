@@ -16,3 +16,23 @@
   background-color: #1d3557;
   border-color: #1d3557;
 }
+
+.form-input > input {
+  -webkit-box-shadow: 1px 1px 3px 0 rgba(166,166,166,1);
+  -moz-box-shadow: 1px 1px 3px 0 rgba(166,166,166,1);
+  box-shadow: 1px 1px 3px 0 rgba(166,166,166,1);
+}
+
+.form-input > input:focus {
+  //outline: 1px solid #1d3557;
+  -webkit-box-shadow: 1px 1px 3px 0 rgba(166,166,166,1);
+  -moz-box-shadow: 1px 1px 3px 0 rgba(166,166,166,1);
+  box-shadow: 1px 1px 3px 0 rgba(166,166,166,1);
+}
+
+.box-shadow {
+  -webkit-box-shadow: 1px 1px 3px 0 rgba(166,166,166,1);
+  -moz-box-shadow: 1px 1px 3px 0 rgba(166,166,166,1);
+  box-shadow: 1px 1px 3px 0 rgba(166,166,166,1);
+  border-radius: .25rem;
+}

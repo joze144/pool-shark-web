@@ -7,7 +7,7 @@ import { ether_scan } from '../../../config/common-paths';
 // COMPONENT
 
 const renderFailed = (address) => (
-  <a href={ether_scan + 'tx/' + address} target="_blank" rel="noopener noreferrer" className="failed_color list-group-item list-group-item-action flex-column align-items-start">
+  <a href={ether_scan + 'tx/' + address} target="_blank" rel="noopener noreferrer" className="failed_color list-group-item failed-transaction-list-item-action flex-column align-items-start">
     <div className="d-flex w-100 justify-content-between">
       <div className="text-center text-muted">TxId: {address}</div>
     </div>
@@ -16,7 +16,7 @@ const renderFailed = (address) => (
 );
 
 const renderPending = (address) => (
-  <a href={ether_scan + 'tx/' + address} target="_blank" rel="noopener noreferrer" className="pending-color list-group-item list-group-item-action flex-column align-items-start">
+  <a href={ether_scan + 'tx/' + address} target="_blank" rel="noopener noreferrer" className="pending-color list-group-item pending-transaction-list-item-action flex-column align-items-start">
     <div className="d-flex w-100 justify-content-between">
       <div className="text-center text-muted">TxId: {address}</div>
     </div>
@@ -25,7 +25,7 @@ const renderPending = (address) => (
 );
 
 const renderSuccess = (address, blockNumber) => (
-  <a href={ether_scan + 'tx/' + address} target="_blank" rel="noopener noreferrer" className="success-color list-group-item list-group-item-action flex-column align-items-start">
+  <a href={ether_scan + 'tx/' + address} target="_blank" rel="noopener noreferrer" className="success-color list-group-item success-transaction-list-item-action flex-column align-items-start">
     <div className="d-flex w-100 justify-content-between">
       <div className="text-center text-muted">TxId: {address}</div>
     </div>

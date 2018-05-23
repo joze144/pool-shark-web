@@ -8,7 +8,7 @@ export const Text = ({ label, input, type, meta: { touched, error, warning } }) 
         {...input}
         placeholder={label}
         type={type}
-        className="pa2 ba b--black-40 w-100"
+        className="w-100 form-input"
       />
       {touched &&
       ((error && <span className="text-danger">{error}</span>) ||

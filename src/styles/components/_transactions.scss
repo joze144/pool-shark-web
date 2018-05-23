@@ -10,3 +10,21 @@
 .success-color {
   background-color: #e6ffee;
 }
+
+.success-transaction-list-item-action:hover, .success-transaction-list-item-action:focus {
+  color: #1d3557;
+  text-decoration: none;
+  background-color: #dffbe8;
+}
+
+.pending-transaction-list-item-action:hover, .pending-transaction-list-item-action:focus {
+  color: #1d3557;
+  text-decoration: none;
+  background-color: #ddf4ff;
+}
+
+.failed-transaction-list-item-action:hover, .failed-transaction-list-item-action:focus {
+  color: #1d3557;
+  text-decoration: none;
+  background-color: #ffe3e3;
+}
