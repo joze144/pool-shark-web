@@ -54,8 +54,8 @@ class PoolDetails extends Component {
 
     const active = (this.props.details && this.props.details.deadline > new Date().getTime());
     let isShark = false;
-    if(!failed) {
-      isShark = (this.props.accounts[0].toLowerCase() === this.props.details.current_shark);
+    if(!failed &&  this.props.details && this.props.details.current_shark) {
+      isShark = (this.props.accounts[0].toLowerCase() === this.props.details.current_shark.toLowerCase());
     }
 
     return (
