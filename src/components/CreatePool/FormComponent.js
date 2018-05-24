@@ -22,7 +22,7 @@ export const isInteger = value => {
 
 // Types
 const alphaNumeric = value =>
-  value && /[^a-zA-Z0-9!?,() ]/i.test(value)
+  value && /[^a-zA-Z0-9!?,():/' ]/i.test(value)
     ? 'Only alphanumeric characters'
     : undefined;
 const mustBeInteger = value =>

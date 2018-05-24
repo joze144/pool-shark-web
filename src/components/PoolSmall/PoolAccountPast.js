@@ -22,7 +22,7 @@ class PoolAccountPast extends Component {
       <div className="p-1 inline-half">
         <h3 className="dark-blue-text text-center text-shadow-gray">Past Pools</h3>
         {
-          this.props.fetched && <PoolSmallList pools={this.props.pools} />
+          this.props.fetched && <PoolSmallList pools={this.props.pools} user_address={this.props.account_selected} />
         }
         {
           <LoadingIndicator busy={this.props.fetching} />

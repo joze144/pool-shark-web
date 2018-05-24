@@ -20,6 +20,8 @@ import { FetchPoolAccountActiveReducer } from './fetchPoolAccountActiveReducer';
 import { FetchPoolAccountPastReducer } from './fetchPoolAccountPastReducer';
 import { CreatePoolReducer } from './createPoolReducer';
 import { FetchTransactionsReducer } from './fetchTransactionsReducer';
+import { FetchPoolDetailsReducer } from './fetchPoolDetailsReducer';
+import { PoolDepositReducer } from './poolDepositReducer';
 
 // EXPORT APP REDUCER
 
@@ -38,5 +40,7 @@ export const AppReducer = combineReducers({
   poolAccountPast: FetchPoolAccountPastReducer,
   form: formReducer,
   createPool: CreatePoolReducer,
-  transactions: FetchTransactionsReducer
+  transactions: FetchTransactionsReducer,
+  poolDetails: FetchPoolDetailsReducer,
+  poolDeposit: PoolDepositReducer
 });

@@ -45,7 +45,7 @@ class MyPools extends Component {
             !failed && <AccountStatistics />
           }
         </div>
-        <div className="p-3">
+        <div className="p-3 border-top">
           {
             !failed && <PoolAccountPast />
           }

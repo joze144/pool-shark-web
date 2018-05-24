@@ -13,31 +13,32 @@ import { PoolSmallListItem } from './PoolSmallListItem';
 
 // COMPONENT
 
-const renderList = pools => (
+const renderList = (pools, currentUser) => (
   <div className="box-shadow list-group animated fadeIn">
     {
       isEmpty(pools) && <EmptyPool />
     }
     {
-      pools.map(pool => renderListItem(pool))
+      pools.map(pool => renderListItem(pool, currentUser))
     }
   </div>
 );
 
-const renderListItem = pool => (
+const renderListItem = (pool, currentUser) => (
   <Fragment key={pool.address}>
-    <PoolSmallListItem address={pool.address} amount={pool.collected_eth} deadline={pool.deadline} />
+    <PoolSmallListItem address={pool.address} amount={pool.collected_eth} deadline={pool.deadline} shark={pool.current_shark} user_address={currentUser} />
   </Fragment>
 );
 
 const PoolSmallList = (props) => (
   <Fragment>
-    {renderList(props.pools)}
+    {renderList(props.pools, props.user_address)}
   </Fragment>
 );
 
 PoolSmallList.propTypes = {
-  pools: PropTypes.array.isRequired
+  pools: PropTypes.array.isRequired,
+  user_address: PropTypes.string
 };
 
 export { PoolSmallList };

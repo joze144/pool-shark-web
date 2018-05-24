@@ -8,9 +8,9 @@ import PropTypes from 'prop-types';
 const TokenHolderListItem = ({address, amount, shark}) => {
   if(shark) {
     return (
-      <div className="list-group-item list-group-item-action flex-column align-items-start">
+      <div className="list-group-item shark-color shark-list-item-action flex-column align-items-start">
         <div className="d-flex w-100 justify-content-between">
-          <h5 className="mb-1 dark-blue-text">User Address: {address}</h5>
+          <div className="text-muted"><span className="dark-blue-text text-shadow-gray">User Address: </span>{address}</div>
           <small className="text-muted">Size: {amount} Points</small>
         </div>
         <small className="text-muted">Current shark!</small>
@@ -21,7 +21,7 @@ const TokenHolderListItem = ({address, amount, shark}) => {
   return (
     <div className="list-group-item list-group-item-action flex-column align-items-start">
       <div className="d-flex w-100 justify-content-between">
-        <h5 className="mb-1 dark-blue-text">User Address: {address}</h5>
+        <div className="text-muted"><span className="dark-blue-text text-shadow-gray">User Address: </span>{address}</div>
         <small className="text-muted">Size: {amount} Points</small>
       </div>
     </div>

@@ -20,7 +20,6 @@ class CreatePool extends Component {
   }
 
   onSubmit(values) {
-    console.log(values);
     this.props.createPool(values);
   }
 
@@ -52,7 +51,7 @@ class CreatePool extends Component {
             this.props.fetched && <TransactionCreated transactionId={this.props.pool} transactionType="Create Pool" />
           }
         </div>
-        <div className="m-2 p-2 m-auto">
+        <div className="m-2 p-2 m-auto border-top">
           {
             !failed && <Transactions creator={this.props.accounts[0]} types={['CreatePool']} />
           }

@@ -23,7 +23,7 @@ class Home extends Component {
           <div className="inline-half">
             <PoolStatistics />
           </div>
-          <div className="p-2 inline-half">
+          <div className="p-2 inline-half border-left">
             <p className="text-center d-table-cell dark-blue-text">Compete with others by depositing Ethereum to the pool. By doing so you get pool reward points, and the biggest holder is
               Shark of the pool. After deadline expires, Shark gets to withdraw all Ethereum collected in the pool.</p>
           </div>

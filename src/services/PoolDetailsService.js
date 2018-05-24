@@ -1,14 +1,14 @@
-import config from '../../config/common-paths';
+import { api_service_url } from '../../config/common-paths';
 import axios from 'axios';
 
-export const getPoolDetails = (value) => {
+export const getPoolDetails = (poolAddress) => {
   return new Promise((resolve, reject) => {
-    axios.post(config.api_service_url + '/pool/' + value, {
-      filter: value
-    }).then( response => {
-      resolve(response.data.docs);
-    }).catch((err) => {
-      reject(err);
-    });
+    axios.get(api_service_url + '/pool/' + poolAddress)
+      .then( response => {
+        console.log(response);
+        resolve(response.data);
+      }).catch((err) => {
+        reject(err);
+      });
   });
 };

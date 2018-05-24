@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TokenHolder } from '../TokenHolder/TokenHolder';
+import { PoolDetails } from '../PoolDetails/PoolDetails';
 
-class SinglePool extends Component {
+class SinglePoolPage extends Component {
   constructor(props) {
     super(props);
   }
@@ -14,17 +14,17 @@ class SinglePool extends Component {
           <div className="text-center"><p className="sub-title-text text-shadow-simple">Pool: {this.props.match.params.id}</p></div>
         </div>
         <div className="p-3">
-          <TokenHolder token={this.props.match.params.id} />
+          <PoolDetails poolAddress={this.props.match.params.id} />
         </div>
       </div>
     );
   }
 }
 
-SinglePool.propTypes = {
+SinglePoolPage.propTypes = {
   match: PropTypes.object.isRequired
 };
 
 // EXPORT COMPONENT
 
-export { SinglePool as SinglePool };
+export { SinglePoolPage as SinglePoolPage };

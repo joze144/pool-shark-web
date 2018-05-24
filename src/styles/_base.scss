@@ -7,6 +7,16 @@ body {
   background-color: #f7f9fa;
 }
 
+.shark-color {
+  background-color: #ffffff;
+}
+
+.shark-list-item-action:hover, .shark-list-item-action:focus {
+  color: #1d3557;
+  text-decoration: none;
+  background-color: #ffffee;
+}
+
 .banner {
   background-image: url("../images/trianglify.svg");
 }

@@ -2,12 +2,12 @@ import axios from 'axios';
 import { api_service_url } from '../../config/common-paths';
 const poolContractAbi = require('../../contracts/Pool.json').abi;
 
-export const depositToPool = (deposit) => {
-  const poolAddress = deposit.poolAddress
-  const amount = deposit.amount
-
+export const depositToPool = (pool, ethAmount) => {
   return new Promise((resolve, reject) => {
     const web3 = window.web3;
+    const poolAddress = pool;
+    const amountWei = web3.toWei(ethAmount, 'ether');
+
     if (!web3 || !web3.isConnected() || !web3.currentProvider.isMetaMask) {
       reject('No web3!');
     }
@@ -23,28 +23,28 @@ export const depositToPool = (deposit) => {
       web3.eth.sendTransaction({
         from: account,
         to: poolAddress,
-        value: web3.utils.toWei(amount, "ether"),
+        value: amountWei,
         gas: 150000}, (err, transactionId) => {
-          if (err) {
-            reject(error);
-          } else {
-            axios.post(api_service_url + '/transaction/create', {
-              address: account,
-              transaction_id: transactionId,
-              transaction_type: 'CreatePool'
-            }).then(response => {
-              resolve(transactionId);
-            }).catch((err) => {
-              reject(err);
-            });
-          }
+        if (err) {
+          reject(error);
+        } else {
+          axios.post(api_service_url + '/transaction/create', {
+            address: account,
+            transaction_id: transactionId,
+            transaction_type: 'Deposit'
+          }).then(response => {
+            resolve(transactionId);
+          }).catch((err) => {
+            reject(err);
+          });
+        }
       });
     });
   });
 };
 
 export const withdrawFromPool = (withdraw) => {
-  const poolAddress = withdraw.poolAddress
+  const poolAddress = withdraw.poolAddress;
 
   return new Promise((resolve, reject) => {
     const web3 = window.web3;
@@ -73,7 +73,7 @@ export const withdrawFromPool = (withdraw) => {
           axios.post(api_service_url + '/transaction/create', {
             address: account,
             transaction_id: transactionId,
-            transaction_type: 'CreatePool'
+            transaction_type: 'Withdraw'
           }).then(response => {
             resolve(transactionId);
           }).catch((err) => {

@@ -8,8 +8,8 @@ import { ether_scan } from '../../../config/common-paths';
 
 const renderFailed = (address) => (
   <a href={ether_scan + 'tx/' + address} target="_blank" rel="noopener noreferrer" className="failed_color list-group-item failed-transaction-list-item-action flex-column align-items-start">
-    <div className="d-flex w-100 justify-content-between">
-      <div className="text-center text-muted">TxId: {address}</div>
+    <div className="w-100 text-center justify-content-between">
+      <p className="text-center dark-blue-text list-item">Transaction Id: {address}</p>
     </div>
     <small className="text-muted">Transaction failed to execute</small>
   </a>
@@ -17,8 +17,8 @@ const renderFailed = (address) => (
 
 const renderPending = (address) => (
   <a href={ether_scan + 'tx/' + address} target="_blank" rel="noopener noreferrer" className="pending-color list-group-item pending-transaction-list-item-action flex-column align-items-start">
-    <div className="d-flex w-100 justify-content-between">
-      <div className="text-center text-muted">TxId: {address}</div>
+    <div className="w-100 text-center justify-content-between">
+      <p className="text-center dark-blue-text list-item">Transaction Id: {address}</p>
     </div>
     <small className="text-muted">Not yet included into the block</small>
   </a>
@@ -26,8 +26,8 @@ const renderPending = (address) => (
 
 const renderSuccess = (address, blockNumber) => (
   <a href={ether_scan + 'tx/' + address} target="_blank" rel="noopener noreferrer" className="success-color list-group-item success-transaction-list-item-action flex-column align-items-start">
-    <div className="d-flex w-100 justify-content-between">
-      <div className="text-center text-muted">TxId: {address}</div>
+    <div className="w-100 text-center justify-content-between">
+      <p className="text-center dark-blue-text list-item">Transaction Id: {address}</p>
     </div>
     <small className="text-muted">Included into the block number: {blockNumber}</small>
   </a>
@@ -49,7 +49,7 @@ const switchBasedOnStatus = (address, status, blockNumber) => {
 
 const TransactionsListItem = ({address, status, blockNumber}) => {
   return (
-    <div>
+    <div className="text-center">
       {
         switchBasedOnStatus(address, status, blockNumber)
       }

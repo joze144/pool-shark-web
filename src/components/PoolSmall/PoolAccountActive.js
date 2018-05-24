@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import isEmpty from 'lodash/isEmpty';
 
 import { fetchPoolAccountActive } from '../state/actions/PoolAccountActiveActions';
 import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
@@ -14,7 +15,9 @@ class PoolAccountActive extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchPoolAccountActive(this.props.account_selected);
+    if (!isEmpty(this.props.accounts)){
+      this.props.fetchPoolAccountActive(this.props.accounts[0]);
+    }
   }
 
   render() {
@@ -22,7 +25,7 @@ class PoolAccountActive extends Component {
       <div className="p-1 inline-half">
         <h3 className="dark-blue-text text-center text-shadow-gray">Active Pools</h3>
         {
-          this.props.fetched && <PoolSmallList pools={this.props.pools} />
+          this.props.fetched && <PoolSmallList pools={this.props.pools} user_address={this.props.accounts[0]} />
         }
         {
           <LoadingIndicator busy={this.props.fetching} />
@@ -41,16 +44,16 @@ PoolAccountActive.propTypes = {
   fetching: PropTypes.bool.isRequired,
   failed: PropTypes.bool,
   pools: PropTypes.array.isRequired,
-  account_selected: PropTypes.string.isRequired
+  accounts: PropTypes.array
 };
 
 // CONFIGURE REACT REDUX
 
 const mapStateToProps = state => {
   const { fetching, fetched, failed, pools } = state.poolAccountActive;
-  const { account_selected } = state.accounts;
+  const { accounts } = state.accounts;
 
-  return { fetching, fetched, failed, pools, account_selected };
+  return { fetching, fetched, failed, pools, accounts };
 };
 
 const mapDispatchToProps = dispatch => (

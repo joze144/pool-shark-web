@@ -21,7 +21,7 @@ class PoolSmallBestEver extends Component {
     return (
       <div className="m-1">
         {
-          this.props.poolBestEverFetched && <PoolSmallList pools={this.props.poolsBestEver} />
+          this.props.poolBestEverFetched && <PoolSmallList pools={this.props.poolsBestEver} user_address={this.props.account_selected} />
         }
         {
           <LoadingIndicator busy={this.props.poolBestEverFetching} />
@@ -39,15 +39,17 @@ PoolSmallBestEver.propTypes = {
   poolBestEverFetched: PropTypes.bool.isRequired,
   poolBestEverFetching: PropTypes.bool.isRequired,
   poolBestEverFailed: PropTypes.bool,
-  poolsBestEver: PropTypes.array.isRequired
+  poolsBestEver: PropTypes.array.isRequired,
+  account_selected: PropTypes.string
 };
 
 // CONFIGURE REACT REDUX
 
 const mapStateToProps = state => {
   const { poolBestEverFetching, poolBestEverFetched, poolBestEverFailed, poolsBestEver } = state.poolsBestEver;
+  const { account_selected } = state.accounts;
 
-  return { poolBestEverFetching, poolBestEverFetched, poolBestEverFailed, poolsBestEver };
+  return { poolBestEverFetching, poolBestEverFetched, poolBestEverFailed, poolsBestEver, account_selected };
 };
 
 const mapDispatchToProps = dispatch => (
