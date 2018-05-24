@@ -21,6 +21,7 @@ export const depositToPool = (pool, ethAmount) => {
         reject(error);
       }
       web3.eth.sendTransaction({
+        nonce: txCount,
         from: account,
         to: poolAddress,
         value: amountWei,

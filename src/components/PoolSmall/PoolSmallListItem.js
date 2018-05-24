@@ -7,7 +7,7 @@ import Moment from 'react-moment';
 
 // COMPONENT
 
-const renderNormal = (address, amount, deadline, shark, user_address) => (
+const renderNormal = (address, amount, deadline, shark) => (
   <a href={'/pool/' + address} className="list-group-item list-group-item-action flex-column align-items-start">
     <div className="d-flex w-100 justify-content-between">
       <p className="text-center dark-blue-text list-item">{address}</p>
@@ -17,7 +17,7 @@ const renderNormal = (address, amount, deadline, shark, user_address) => (
   </a>
 );
 
-const renderShark = (address, amount, deadline, shark, user_address) => (
+const renderShark = (address, amount, deadline, shark) => (
   <a href={'/pool/' + address} className="list-group-item shark-color shark-list-item-action flex-column align-items-start">
     <div className="d-flex w-100 justify-content-between">
       <p className="text-center dark-blue-text list-item">{address}</p>
@@ -29,10 +29,10 @@ const renderShark = (address, amount, deadline, shark, user_address) => (
 
 const switchBasedOnStatus = (address, amount, deadline, shark, user_address) => {
   if (user_address && shark.toLowerCase() === user_address.toLowerCase()) {
-    return renderShark(address, amount, deadline, shark, user_address);
+    return renderShark(address, amount, deadline, shark);
   }
 
-  return renderNormal(address, amount, deadline, shark, user_address);
+  return renderNormal(address, amount, deadline, shark);
 };
 
 const PoolSmallListItem = ({address, amount, deadline, shark, user_address}) => {
