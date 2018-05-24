@@ -5,7 +5,6 @@ export const getPoolDetails = (poolAddress) => {
   return new Promise((resolve, reject) => {
     axios.get(api_service_url + '/pool/' + poolAddress)
       .then( response => {
-        console.log(response);
         resolve(response.data);
       }).catch((err) => {
         reject(err);

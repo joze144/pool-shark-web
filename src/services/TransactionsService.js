@@ -2,7 +2,6 @@ import axios from 'axios';
 import { api_service_url } from '../../config/common-paths';
 
 export const getTransactions = (creator, types) => {
-  console.log('creator: ' + creator + ' types: ' + types);
   return new Promise((resolve, reject) => {
     axios.post(api_service_url + '/transaction/list', {
       address: creator,

@@ -18,10 +18,6 @@ const initialState = {
 // REDUCER
 
 export const CreatePoolReducer = (state = initialState, action) => {
-  if (action.type === CREATE_POOL_FULFILLED || action.type === CREATE_POOL_PENDING || action.type === CREATE_POOL_REJECTED) {
-    console.log('pool creation');
-    console.log(action.payload);
-  }
   switch(action.type) {
     case CREATE_POOL_PENDING:
       return {

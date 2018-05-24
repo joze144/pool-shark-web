@@ -18,9 +18,6 @@ const initialState = {
 // REDUCER
 
 export const FetchPoolAccountPastReducer = (state = initialState, action) => {
-  if(action.type === FETCH_POOL_ACCOUNT_PAST_FULFILLED) {
-    console.log(action.payload);
-  }
   switch(action.type) {
     case FETCH_POOL_ACCOUNT_PAST_PENDING:
       return {
