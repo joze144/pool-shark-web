@@ -29,11 +29,10 @@ class MyPools extends Component {
       error = <ErrorWeb3 />;
     }
 
-    if (isEmpty(this.props.accounts)) {
+    if (!failed && isEmpty(this.props.accounts)) {
       failed = true;
-      error = <AccountUnavailable />;
+      error = <AccountUnavailable/>;
     }
-
 
     return (
       <div>
