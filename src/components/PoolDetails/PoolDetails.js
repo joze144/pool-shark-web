@@ -59,18 +59,18 @@ class PoolDetails extends Component {
     }
 
     return (
-      <div className="m-5">
+      <div>
         {
-          active && <PoolDepositForm onSubmit={this.onSubmit} />
+          !failed && active && <PoolDepositForm onSubmit={this.onSubmit} />
+        }
+        {
+          this.props.depositFetched && <TransactionCreated transactionId={this.props.deposit} transactionType="Pool Deposit" />
         }
         {
           isShark && !active && <PoolWithdrawForm onSubmit={this.onWithdrawSubmit}/>
         }
         {
-          this.props.depositFetched && <TransactionCreated transactionId={this.props.deposit} transactionType="Pool deposit" />
-        }
-        {
-          failed && error
+          this.props.withdrawFetched && <TransactionCreated transactionId={this.props.withdraw} transactionType="Pool Withdraw" />
         }
         {
           this.props.fetched && <PoolDetailsField
@@ -92,6 +92,9 @@ class PoolDetails extends Component {
         <TokenHolder token={this.props.poolAddress} />
         {
           !failed && <Transactions types={['Deposit', 'Withdraw', 'TokenTransfer']} creator={this.props.accounts[0]} />
+        }
+        {
+          failed && error
         }
       </div>
     );

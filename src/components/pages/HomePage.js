@@ -9,7 +9,7 @@ const HomePage = () => (
   <div>
     <div className="banner jumbotron jumbotron-fluid light-blue-top animated bottom-dark-border">
       <div className="text-center"><h1 className="title-text text-shadow-simple">Shark of The Pool</h1></div>
-      <div className="text-center"><p className="sub-title-text text-shadow-simple">Be a Shark!</p></div>
+      <div className="text-center"><h2 className="dark-blue-text text-shadow-simple">Ethereum powered DAPP</h2></div>
     </div>
     <Home />
   </div>
