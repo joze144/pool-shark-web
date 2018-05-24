@@ -22,6 +22,7 @@ import { CreatePoolReducer } from './createPoolReducer';
 import { FetchTransactionsReducer } from './fetchTransactionsReducer';
 import { FetchPoolDetailsReducer } from './fetchPoolDetailsReducer';
 import { PoolDepositReducer } from './poolDepositReducer';
+import {PoolWithdrawReducer} from './poolWithdrawReducer';
 
 // EXPORT APP REDUCER
 
@@ -42,5 +43,6 @@ export const AppReducer = combineReducers({
   createPool: CreatePoolReducer,
   transactions: FetchTransactionsReducer,
   poolDetails: FetchPoolDetailsReducer,
-  poolDeposit: PoolDepositReducer
+  poolDeposit: PoolDepositReducer,
+  poolWithdraw: PoolWithdrawReducer
 });

@@ -32,7 +32,7 @@ export const depositToPool = (pool, ethAmount) => {
             address: account,
             transaction_id: transactionId,
             transaction_type: 'Deposit'
-          }).then(response => {
+          }).then(() => {
             resolve(transactionId);
           }).catch((err) => {
             reject(err);
@@ -43,9 +43,7 @@ export const depositToPool = (pool, ethAmount) => {
   });
 };
 
-export const withdrawFromPool = (withdraw) => {
-  const poolAddress = withdraw.poolAddress;
-
+export const withdrawFromPool = (poolAddress) => {
   return new Promise((resolve, reject) => {
     const web3 = window.web3;
     if (!web3 || !web3.isConnected() || !web3.currentProvider.isMetaMask) {
@@ -74,7 +72,7 @@ export const withdrawFromPool = (withdraw) => {
             address: account,
             transaction_id: transactionId,
             transaction_type: 'Withdraw'
-          }).then(response => {
+          }).then(() => {
             resolve(transactionId);
           }).catch((err) => {
             reject(err);

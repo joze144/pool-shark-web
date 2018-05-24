@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import isEmpty from 'lodash/isEmpty';
 
+import { Transactions } from '../Transactions/Transactions';
+import { poolWithdraw } from '../state/actions/PoolWithdrawActions';
 import { poolDeposit } from '../state/actions/PoolDepositActions';
 import { fetchPoolDetails } from '../state/actions/PoolDetailsActions';
 import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
@@ -13,16 +15,22 @@ import { AccountUnavailable } from '../Web3/AccountUnavailable';
 import { PoolDetailsField } from './PoolDetailsField';
 import { TokenHolder } from '../TokenHolder/TokenHolder';
 import { PoolDepositForm } from './PoolDepositForm';
+import { PoolWithdrawForm } from './PoolWithdrawForm';
 import { TransactionCreated } from '../TransactionCreated/TransactionCreated';
 
 class PoolDetails extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onWithdrawSubmit = this.onWithdrawSubmit.bind(this);
   }
 
   onSubmit(values) {
     this.props.poolDeposit(this.props.poolAddress, values.amount);
+  }
+
+  onWithdrawSubmit() {
+    this.props.poolWithdraw(this.props.poolAddress);
   }
 
   componentDidMount() {
@@ -45,11 +53,18 @@ class PoolDetails extends Component {
     }
 
     const active = (this.props.details && this.props.details.deadline > new Date().getTime());
+    let isShark = false;
+    if(!failed) {
+      isShark = (this.props.accounts[0].toLowerCase() === this.props.details.current_shark);
+    }
 
     return (
       <div className="m-5">
         {
           active && <PoolDepositForm onSubmit={this.onSubmit} />
+        }
+        {
+          isShark && !active && <PoolWithdrawForm onSubmit={this.onWithdrawSubmit}/>
         }
         {
           this.props.depositFetched && <TransactionCreated transactionId={this.props.deposit} transactionType="Pool deposit" />
@@ -75,12 +90,18 @@ class PoolDetails extends Component {
           this.props.failed && <Error message="Failed to fetch list of pools" />
         }
         <TokenHolder token={this.props.poolAddress} />
+        {
+          !failed && <Transactions types={['Deposit', 'Withdraw', 'TokenTransfer']} creator={this.props.accounts[0]} />
+        }
       </div>
     );
   }
 }
 
 PoolDetails.propTypes = {
+  poolWithdraw: PropTypes.func.isRequired,
+  withdrawFetched: PropTypes.bool.isRequired,
+  withdraw: PropTypes.string,
   poolDeposit: PropTypes.func.isRequired,
   depositFetched: PropTypes.bool.isRequired,
   deposit: PropTypes.string,
@@ -102,15 +123,19 @@ const mapStateToProps = state => {
   const { network_fetched, network_id } = state.network;
   const { fetching, fetched, failed, details } = state.poolDetails;
   const depositState = state.poolDeposit;
+  const withdrawState = state.poolWithdraw;
 
   const depositFetched = depositState.fetched;
   const deposit = depositState.transaction;
 
-  return { fetching, fetched, failed, details, accounts, network_fetched, network_id, depositFetched, deposit };
+  const withdrawFetched = withdrawState.fetched;
+  const withdraw = withdrawState.transaction;
+
+  return { fetching, fetched, failed, details, accounts, network_fetched, network_id, depositFetched, deposit, withdrawFetched, withdraw };
 };
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ poolDeposit, fetchPoolDetails }, dispatch)
+  bindActionCreators({ poolWithdraw, poolDeposit, fetchPoolDetails }, dispatch)
 );
 
 const hoc = connect(mapStateToProps, mapDispatchToProps)(PoolDetails);
