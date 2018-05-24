@@ -19,7 +19,7 @@ const resolveTransactionType = (type) => {
     default:
       return '';
   }
-}
+};
 
 const renderFailed = (address, type) => (
   <a href={ether_scan + 'tx/' + address} target="_blank" rel="noopener noreferrer" className="failed_color list-group-item failed-transaction-list-item-action flex-column align-items-start">
