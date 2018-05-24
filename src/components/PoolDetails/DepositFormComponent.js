@@ -7,13 +7,13 @@ const required = value => (value ? undefined : 'Required');
 export const moreThanZero = value => (
   value && 0 >= value ? 'Value has to be more than 0' : undefined
 );
-export const isInteger = value => {
-  return value && !/^[-+]?[1-9]\d*$/i.test(value) ? 'Has to be an integer' : undefined;
+export const isDecimal = value => {
+  return value && !/^\d+(\.\d{1,4})?$/i.test(value) ? 'Has to be a decimal number, with at most 4 decimal points' : undefined;
 };
 
-const mustBeInteger = value =>
-  value && parseInt(value) === 'NaN'
-    ? 'Has to be an integer'
+const mustBeDecimal = value =>
+  value && parseFloat(value) === 'NaN'
+    ? 'Has to be a decimal number, with at most 4 decimal points'
     : undefined;
 
 export const DepositFormComponent = ({ handleSubmit, onSubmit }) => {
@@ -24,8 +24,8 @@ export const DepositFormComponent = ({ handleSubmit, onSubmit }) => {
           name="amount"
           label="Enter ETH amount you wish to deposit"
           type="text"
-          validate={[required, isInteger, moreThanZero]}
-          warn={mustBeInteger}
+          validate={[required, isDecimal, moreThanZero]}
+          warn={mustBeDecimal}
           component={Text}
         />
         <div className="mt-2">
