@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { eth_network } from '../../../config/common-paths';
 
 import { createPool } from '../state/actions/CreatePoolActions';
 import { AccountUnavailable } from '../Web3/AccountUnavailable';
 import { ErrorWeb3 } from '../Web3/ErrorWeb3';
+import { WrongNetwork } from '../Web3/WrongNetwork';
 import { TransactionCreated } from '../TransactionCreated/TransactionCreated';
 import isEmpty from 'lodash/isEmpty';
 
@@ -36,6 +38,11 @@ class CreatePool extends Component {
     if (isEmpty(this.props.accounts)) {
       failed = true;
       error = <AccountUnavailable/>;
+    }
+
+    if (!failed && this.props.network_id && this.props.network_id !== eth_network) {
+      failed = true;
+      error = <WrongNetwork />;
     }
 
     return (

@@ -24,8 +24,8 @@ export const depositToPool = (pool, ethAmount) => {
         nonce: txCount,
         from: account,
         to: poolAddress,
-        value: amountWei,
-        gas: 150000}, (err, transactionId) => {
+        value: amountWei
+      }, (err, transactionId) => {
         if (err) {
           reject(error);
         } else {
@@ -63,7 +63,6 @@ export const withdrawFromPool = (poolAddress) => {
       }
       poolContract.withdraw({
         nonce: txCount,
-        gasLimit: 100000,
         from: account
       }, (err, transactionId) => {
         if (err) {

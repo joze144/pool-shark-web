@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import isEmpty from 'lodash/isEmpty';
+import { eth_network } from '../../../config/common-paths';
 
 import { Transactions } from '../Transactions/Transactions';
 import { poolWithdraw } from '../state/actions/PoolWithdrawActions';
@@ -11,6 +12,7 @@ import { fetchPoolDetails } from '../state/actions/PoolDetailsActions';
 import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
 import { Error } from '../shared/Error/Error';
 import { ErrorWeb3 } from '../Web3/ErrorWeb3';
+import { WrongNetwork } from '../Web3/WrongNetwork';
 import { AccountUnavailable } from '../Web3/AccountUnavailable';
 import { PoolDetailsField } from './PoolDetailsField';
 import { TokenHolder } from '../TokenHolder/TokenHolder';
@@ -50,6 +52,11 @@ class PoolDetails extends Component {
     if (!failed && isEmpty(this.props.accounts)) {
       failed = true;
       error = <AccountUnavailable/>;
+    }
+
+    if (!failed && this.props.network_id && this.props.network_id !== eth_network) {
+      failed = true;
+      error = <WrongNetwork />;
     }
 
     const active = (this.props.details && this.props.details.deadline > new Date().getTime());

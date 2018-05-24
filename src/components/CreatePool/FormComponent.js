@@ -60,12 +60,14 @@ export const FormComponent = ({ handleSubmit, onSubmit }) => {
           warn={mustBeInteger}
           component={Text}
         />
-        <button
-          type="submit"
-          className="mt-1 btn btn-dark-blue"
-        >
-          Create Pool
-        </button>
+        <div className="mt-2">
+          <button
+            type="submit"
+            className="center d-block m-auto btn btn-dark-blue"
+          >
+            Create Pool
+          </button>
+        </div>
       </form>
     </div>
   );

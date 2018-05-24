@@ -21,7 +21,6 @@ export const createPool = (pool) => {
       }
       appContract.createPool(pool.name, Number(pool.rate), Number(pool.deadline), {
         nonce: txCount,
-        gasLimit: 2000000,
         from: account
       }, (err, transactionId) => {
         if(err) {

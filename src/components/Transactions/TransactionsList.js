@@ -23,7 +23,7 @@ const renderList = transactions => (
 
 const renderListItem = transaction => (
   <Fragment key={transaction.tx_address}>
-    <TransactionsListItem address={transaction.tx_address} status={transaction.tx_status} blockNumber={transaction.block_included} />
+    <TransactionsListItem address={transaction.tx_address} status={transaction.tx_status} blockNumber={transaction.block_included} type={transaction.tx_type} />
   </Fragment>
 );
 

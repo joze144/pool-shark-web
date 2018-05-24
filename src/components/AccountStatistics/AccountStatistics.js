@@ -17,7 +17,7 @@ class AccountStatistics extends Component {
   render() {
     return (
       <div className="m-3">
-        <p>Account statistics!</p>
+        {/*<p>Account statistics!</p>*/}
       </div>
     );
   }
